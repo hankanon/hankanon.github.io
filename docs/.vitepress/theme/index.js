@@ -1,7 +1,7 @@
 import { h } from 'vue'
 import { useData } from 'vitepress'
 import Theme from 'vitepress/theme'
-
+import './styles/index.scss'
 export default Object.assign({}, Theme, {
   Layout: () => {
     const props = {}
