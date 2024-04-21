@@ -10,13 +10,14 @@ const formatTitle = computed(() => {
 })
 console.log(1112222)
 console.log(props)
+console.log(formatTitle)
 </script>
 
 <template>
-    <h2 v-if="title" :id="formatTitle" tabindex="-1">
-        {{ props.title }}
-        <a class="header-anchor" :href="`#${formatTitle}`" aria-hidden="true">#</a>
-    </h2>
+  <h2 v-if="title" :id="formatTitle" tabindex="-1">
+      {{ props.title }}
+      <a class="header-anchor" :href="`#${formatTitle}`" aria-hidden="true"></a>
+  </h2>
   <div class="m-nav-links">
     <MNavLink
       v-for="{ icon, title, desc, link } in props.items"

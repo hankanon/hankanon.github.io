@@ -1,6 +1,6 @@
 ---
-layout: home
-layoutClass: m-nav-layout
+layoutClass: m-tool-layout
+outline: [2, 3, 4]
 ---
 
 <style src="./index.scss"></style>
@@ -12,9 +12,13 @@ import { navData } from './data'
 </script>
 
 # 前端导航
-<NavList v-for="(item,index) in navData" 
-:title="item.title" 
-:items="item.items" 
-:key="index"></NavList>
+<div class="container">
+    <NavList 
+        v-for="(item,index) in navData" 
+        :title="item.title" 
+        :items="item.items" 
+        :key="index">
+    </NavList>
+</div>
 
 

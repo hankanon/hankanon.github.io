@@ -1,10 +1,13 @@
 import { defineConfig } from 'vitepress'
-
+import sidebar from './config/sidebar';
+import nav from './config/nav';
+import head from './config/head';
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   base: '/',
   title: "浓浓的小屋",
   description: "欢迎来到浓浓的小屋",
+  head,
   lastUpdated: true, // 最后更新时间
   // 主题配置选项
   // https://vitepress.dev/reference/default-theme-config
@@ -12,48 +15,9 @@ export default defineConfig({
     i18nRouting: false,
     logo: '/logo.png',
     // 顶部导航栏
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' },
-      { text: '笔记', link: '/笔记/sass学习笔记' },
-      { text: 'test', link: 'test' }
-    ],
+    nav,
     // 侧边栏
-    sidebar: [
-      {
-        text: '笔记',
-        collapsed: false,
-        items: [
-          { text: 'sass学习笔记', link: '/sass学习笔记' },
-          { text: 'Runtime API Examples', link: '/api-examples' },
-          { text: 'aaaaaaa', link: '/api-examples' }
-        ]
-      },
-      {
-        text: '读书',
-        items: [
-          { text: 'sass学习笔记', link: '/sass学习笔记' },
-          { text: 'Runtime API Examples', link: '/api-examples' },
-          { text: 'aaaaaaa', link: '/api-examples' }
-        ]
-      },
-      {
-        text: '游戏',
-        items: [
-          { text: 'sass学习笔记', link: '/sass学习笔记' },
-          { text: 'Runtime API Examples', link: '/api-examples' },
-          { text: 'aaaaaaa', link: '/api-examples' }
-        ]
-      },
-      {
-        text: '动漫',
-        items: [
-          { text: 'sass学习笔记', link: '/sass学习笔记' },
-          { text: 'Runtime API Examples', link: '/api-examples' },
-          { text: 'aaaaaaa', link: '/api-examples' }
-        ]
-      }
-    ],
+    sidebar,
 
     // 页面标题的层级
     outline: {
