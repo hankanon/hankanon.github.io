@@ -14,5 +14,15 @@ export default Object.assign({}, Theme, {
     }
 
     return h(Theme.Layout, props)
+  },
+  enhanceApp: ({app, router, siteData}) => {
+    console.log(app)
+    console.log(siteData)
+    router.onBeforeRouteChange = (to) => {
+      console.log('路由将改变为: ', to);
+      if (typeof _hmt !== 'undefined') {
+        _hmt.push(['_trackPageview', to]);
+      }
+    };
   }
 })
