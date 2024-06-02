@@ -7,4 +7,16 @@ export default [
   ['link', { rel: 'apple-touch-icon', href: '/favicon.ico' }],
   ['link', { rel: 'mask-icon', href: '/favicon.ico', color: '#3eaf7c' }],
   ['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
+  [
+    'script',
+    {},
+    ` var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?22e67cdd4b97413abf41a775f89e50f6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    `,
+  ],
 ]
