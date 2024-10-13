@@ -1,52 +1,61 @@
 export default {
-  '/fe/': [
+  '/学习/': [
     {
-      text: 'JavaScript 基础知识',
+      text: 'JavaScript',
       collapsed: false,
       items: [
-        { text: '数据类型', link: '/fe/javascript/types' },
-        { text: '引用类型的拷贝', link: '/fe/javascript/clone' },
-        { text: '类型转换', link: '/fe/javascript/conversions' },
-        { text: '原型和原型链', link: '/fe/javascript/prototype' },
-        { text: '继承', link: '/fe/javascript/inherit' }
+        { text: '数据类型', link: '/学习/JavaScript/types' },
+        // { text: '引用类型的拷贝', link: '/学习/JavaScript/clone' },
+        // { text: '类型转换', link: '/学习/JavaScript/conversions' },
+        // { text: '原型和原型链', link: '/学习/JavaScript/prototype' },
+        // { text: '继承', link: '/学习/JavaScript/inherit' }
       ]
     },
-    {
-      text: 'ES6 常用知识点',
-      link: '/fe/es6/'
-    },
-    {
-      text: 'TypeScript',
-      link: '/fe/typescript/base'
-    },
+    // {
+    //   text: 'ES6 常用知识点',
+    //   link: '/学习/es6/'
+    // },
+    // {
+    //   text: 'TypeScript',
+    //   link: '/学习/typescript/base'
+    // },
     {
       text: 'HTML / CSS',
       collapsed: false,
       items: [
-        { text: 'HTML 理论知识点', link: '/fe/html/' },
-        { text: 'CSS 理论知识点', link: '/fe/css/' }
+        // { text: 'HTML 理论知识点', link: '/学习/html/' },
+        { text: 'SCSS 知识点', link: '/学习/css/sass学习笔记' }
       ]
     },
+    // {
+    //   text: '浏览器与网络',
+    //   collapsed: false,
+    //   items: [
+    //     { text: '浏览器相关知识点', link: '/学习/browser/' },
+    //     { text: 'TCP', link: '/学习/network/tcp' },
+    //     { text: 'HTTP', link: '/学习/network/http' }
+    //   ]
+    // },
+    // {
+    //   text: '概念知识点',
+    //   collapsed: false,
+    //   items: [
+    //     { text: '模块化', link: '/学习/concept/module' },
+    //     { text: '前端页面渲染方式', link: '/学习/concept/page-rendering' }
+    //   ]
+    // },
+    // {
+    //   text: '编程题',
+    //   link: '/学习/coding/'
+    // }
+  ],
+  '/生活/': [
     {
-      text: '浏览器与网络',
-      collapsed: false,
+      text: '日常生活',
+      // collapsed: false,
       items: [
-        { text: '浏览器相关知识点', link: '/fe/browser/' },
-        { text: 'TCP', link: '/fe/network/tcp' },
-        { text: 'HTTP', link: '/fe/network/http' }
+        { text: '宅', link: '/生活/index' },
       ]
-    },
-    {
-      text: '概念知识点',
-      collapsed: false,
-      items: [
-        { text: '模块化', link: '/fe/concept/module' },
-        { text: '前端页面渲染方式', link: '/fe/concept/page-rendering' }
-      ]
-    },
-    {
-      text: '编程题',
-      link: '/fe/coding/'
     }
   ],
   '/analysis/': [

@@ -1,13 +1,14 @@
 ---
 # 上一页
-prev:
-  text: 'test'
-  link: 'test'
+# prev:
+#   text: 'test'
+#   link: 'test'
 
-next: false
-# 显示右侧全部菜单
-outline: deep
+# next: false
+# # 显示右侧全部菜单
+# outline: deep
 ---
+# SCSS 知识点
 
 ## 常用的指令
 
