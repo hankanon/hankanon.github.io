@@ -16,8 +16,8 @@ hero:
     - text: 学习
       link: /学习/
       theme: alt
-    - text: 生活
-      link: /生活/index
+    - text: 其他
+      link: /other
       theme: alt
 features:
   - icon: 📖
