@@ -27,7 +27,7 @@ export default [
     `var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?307234a84dc32232cd2eef10dad5821d";
+      hm.src = "https://hm.baidu.com/hm.js?22e67cdd4b97413abf41a775f89e50f6";
       var s = document.getElementsByTagName("script")[0]; 
       s.parentNode.insertBefore(hm, s);
     })();
