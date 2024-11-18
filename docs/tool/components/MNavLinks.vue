@@ -8,9 +8,9 @@ const props = defineProps({
 const formatTitle = computed(() => {
   return props.title
 })
-console.log(1112222)
-console.log(props)
-console.log(formatTitle)
+// console.log(1112222)
+// console.log(props)
+// console.log(formatTitle)
 </script>
 
 <template>
