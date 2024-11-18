@@ -14,7 +14,7 @@ hero:
     - text: 工具
       link: /tool/index
     - text: 学习
-      link: /学习/
+      link: /学习/index
       theme: alt
     - text: 生活
       link: /生活/index

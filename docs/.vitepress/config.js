@@ -4,6 +4,7 @@ import nav from './config/nav';
 import head from './config/head';
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  outDir: '../dist',
   base: '/',
   title: "浓浓的小屋",
   description: "欢迎来到浓浓的小屋",
@@ -43,4 +44,11 @@ export default defineConfig({
       message: '浓浓的小屋',
     },
   },
+  css: {
+    preprocessorOptions: {
+        scss: {
+            api: 'modern-compiler', // or 'modern'
+        },
+    },
+},
 })
