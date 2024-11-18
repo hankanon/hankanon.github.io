@@ -4,7 +4,7 @@ import nav from './config/nav';
 import head from './config/head';
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  outDir: '../dist',
+  // outDir: '../dist',
   base: '/',
   title: "浓浓的小屋",
   description: "欢迎来到浓浓的小屋",
