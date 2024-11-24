@@ -30,7 +30,12 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
     ],
+    // 搜索
+    search: {
+      provider: "local",
+    },
     lastUpdatedText: '上次更新',
+    // 主题
     darkModeSwitchLabel: '外观',
     returnToTopLabel: '返回顶部',
     

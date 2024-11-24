@@ -2,6 +2,7 @@ import { h } from 'vue'
 import { useData } from 'vitepress'
 import Theme from 'vitepress/theme'
 import './styles/index.scss'
+import Layout from "./Layout.vue";
 export default Object.assign({}, Theme, {
   Layout: () => {
     const props = {}
@@ -12,8 +13,10 @@ export default Object.assign({}, Theme, {
     if (frontmatter.value?.layoutClass) {
       props.class = frontmatter.value.layoutClass
     }
-
-    return h(Theme.Layout, props)
+    return h(Layout, props, {
+      // https://vitepress.dev/guide/extending-default-theme#layout-slots
+    });
+    // return h(Theme.Layout, props)
   },
   enhanceApp: ({app, router, siteData}) => {
     // console.log(app)

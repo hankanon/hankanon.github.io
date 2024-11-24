@@ -1,4 +1,5 @@
 export default [
+  ['meta', { name: 'keywords', content: '网站,个人博客,浓浓的小屋,hankanon,卡农,卡侬,游戏,3D,3D打印,拓竹,笔记' }],
   ['meta', { name: 'theme-color', content: '#3eaf7c' }],
   ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
   ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],

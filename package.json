@@ -1,6 +1,7 @@
 {
   "type": "module",
   "devDependencies": {
+    "@giscus/vue": "^3.0.0",
     "sass": "^1.70.0",
     "vitepress": "^1.1.0"
   },
