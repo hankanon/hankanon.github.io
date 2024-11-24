@@ -1,9 +1,11 @@
 <!--Layout.vue-->
 <template>
     <Layout>
-      <template #doc-footer-before> </template>
+      <template #doc-footer-before>
+      <BackTop></BackTop>
+    </template>
       <template #doc-after>
-        <div style="margin-top: 24px">
+        <div class="giscus-container">
           <Giscus
             :key="page.filePath"
             repo="hankanon/hankanon.github.io"
@@ -29,6 +31,8 @@
   <script setup>
   import Giscus from "@giscus/vue";
   import DefaultTheme from "vitepress/theme";
+  import BackTop from './components/backTop.vue';
+
   import { watch } from "vue";
   import { inBrowser, useData } from "vitepress";
   

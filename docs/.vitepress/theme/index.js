@@ -1,23 +1,17 @@
 import { h } from 'vue'
 import { useData } from 'vitepress'
-import Theme from 'vitepress/theme'
+import DefaultTheme from 'vitepress/theme'
+import Layout from './Layout.vue' 
 import './styles/index.scss'
-import Layout from "./Layout.vue";
-export default Object.assign({}, Theme, {
+export default {
+  extends: DefaultTheme,
   Layout: () => {
     const props = {}
-    // 获取 frontmatter
     const { frontmatter } = useData()
-
     /* 添加自定义 class */
-    if (frontmatter.value?.layoutClass) {
-      props.class = frontmatter.value.layoutClass
-    }
-    return h(Layout, props, {
-      // https://vitepress.dev/guide/extending-default-theme#layout-slots
-    });
-    // return h(Theme.Layout, props)
-  },
+    props.class = frontmatter.value.layoutClass || ''
+    return h(Layout, props);
+},
   enhanceApp: ({app, router, siteData}) => {
     // console.log(app)
     // console.log(siteData)
@@ -28,4 +22,4 @@ export default Object.assign({}, Theme, {
       }
     };
   }
-})
+}
