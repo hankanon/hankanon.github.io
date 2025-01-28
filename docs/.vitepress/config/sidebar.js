@@ -58,20 +58,36 @@ export default {
         { text: '单例模式', link: '/学习/design/单例模式' },
         { text: '工厂模式', link: '/学习/design/工厂模式' },
         { text: '建造者模式', link: '/学习/design/建造者模式' },
+        { text: '原型模式', link: '/学习/design/原型模式' },
       ]
     },
     {
       text: '结构型模式',
       collapsed: false,
       items: [
-        { text: '单例模式', link: '/学习/design/单例模式' }
+        { text: '适配器模式', link: '/学习/design/适配器模式' },
+        { text: '桥接模式', link: '/学习/design/桥接模式' },
+        { text: '装饰器模式', link: '/学习/design/装饰器模式' },
+        { text: '外观模式', link: '/学习/design/外观模式' },
+        { text: '享元模式', link: '/学习/design/享元模式' },
+        { text: '代理模式', link: '/学习/design/代理模式' },
       ]
     },
     {
       text: '行为型模式',
       collapsed: false,
       items: [
-        { text: '单例模式', link: '/学习/design/单例模式' }
+        { text: '责任链模式', link: '/学习/design/责任链模式' },
+        { text: '命令模式', link: '/学习/design/命令模式' },
+        { text: '解释器模式', link: '/学习/design/解释器模式' },
+        { text: '迭代器模式', link: '/学习/design/迭代器模式' },
+        { text: '中介者模式', link: '/学习/design/中介者模式' },
+        { text: '备忘录模式', link: '/学习/design/备忘录模式' },
+        { text: '观察者模式', link: '/学习/design/观察者模式' },
+        { text: '状态模式', link: '/学习/design/状态模式' },
+        { text: '策略模式', link: '/学习/design/策略模式' },
+        { text: '模板方法模式', link: '/学习/design/模板方法模式' },
+        { text: '访问者模式', link: '/学习/design/访问者模式' },
       ]
     }
   ],
