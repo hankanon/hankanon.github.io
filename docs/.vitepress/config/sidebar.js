@@ -11,10 +11,7 @@ export default {
         // { text: '继承', link: '/学习/JavaScript/inherit' }
       ]
     },
-    // {
-    //   text: 'ES6 常用知识点',
-    //   link: '/学习/es6/'
-    // },
+
     // {
     //   text: 'TypeScript',
     //   link: '/学习/typescript/base'
@@ -48,6 +45,29 @@ export default {
     //   text: '编程题',
     //   link: '/学习/coding/'
     // }
+  ],
+  '/学习/design/': [
+    {
+      text: '设计模式-创建型模式',
+      collapsed: false,
+      items: [
+        { text: '单例模式', link: '/学习/design/单例模式' }
+      ]
+    },
+    {
+      text: '设计模式-结构型模式',
+      collapsed: false,
+      items: [
+        { text: '单例模式', link: '/学习/design/单例模式' }
+      ]
+    },
+    {
+      text: '设计模式-行为型模式',
+      collapsed: false,
+      items: [
+        { text: '单例模式', link: '/学习/design/单例模式' }
+      ]
+    }
   ],
   '/生活/': [
     {
