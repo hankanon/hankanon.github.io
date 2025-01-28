@@ -48,21 +48,27 @@ export default {
   ],
   '/学习/design/': [
     {
-      text: '设计模式-创建型模式',
+      text: '设计模式',
+      link: '/学习/design/index'
+    },
+    {
+      text: '创建型模式',
+      collapsed: false,
+      items: [
+        { text: '单例模式', link: '/学习/design/单例模式' },
+        { text: '工厂模式', link: '/学习/design/工厂模式' },
+        { text: '建造者模式', link: '/学习/design/建造者模式' },
+      ]
+    },
+    {
+      text: '结构型模式',
       collapsed: false,
       items: [
         { text: '单例模式', link: '/学习/design/单例模式' }
       ]
     },
     {
-      text: '设计模式-结构型模式',
-      collapsed: false,
-      items: [
-        { text: '单例模式', link: '/学习/design/单例模式' }
-      ]
-    },
-    {
-      text: '设计模式-行为型模式',
+      text: '行为型模式',
       collapsed: false,
       items: [
         { text: '单例模式', link: '/学习/design/单例模式' }
