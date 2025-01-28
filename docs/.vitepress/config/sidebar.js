@@ -1,5 +1,5 @@
 export default {
-  '/学习/': [
+  '/学习/JavaScript': [
     {
       text: 'JavaScript',
       collapsed: false,
@@ -46,6 +46,15 @@ export default {
     //   link: '/学习/coding/'
     // }
   ],
+  '/note/': [
+    {
+      text: '笔记',
+      link: '/note/index'
+    },
+    {
+      text: '移动端适配',
+      link: '/note/移动端适配'
+    }],
   '/学习/design/': [
     {
       text: '设计模式',
