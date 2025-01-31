@@ -57,4 +57,3 @@ jobs:
         with:
           artifact_name: vite-press-build  # 参数名更正
           token: ${{ secrets.GITHUB_TOKEN }}
-          
