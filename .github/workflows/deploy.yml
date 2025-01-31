@@ -52,6 +52,14 @@ jobs:
           name: github-pages  # 名称必须全小写
           path: docs/.vitepress/dist
           retention-days: 1
+          if-no-files-found: warn
+          compression-level: 6
+          overwrite: false
+          include-hidden-files: false
+
+      # 调试输出：确认工件上传成功
+      - name: Verify artifact upload
+        run: echo "Artifact github-pages has been successfully uploaded!"
 
       # 修正参数名 artifact -> artifact_name
       - name: Deploy to GitHub Pages
