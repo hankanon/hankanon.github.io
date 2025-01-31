@@ -12,6 +12,7 @@ jobs:
       pages: write
       id-token: write
       contents: read
+      actions: read  # 新增：允许读取已上传的产物
 
     environment:
       name: github-pages
@@ -31,28 +32,32 @@ jobs:
           node-version: "20"
           cache: "pnpm"
 
-      - name: Install dependencies
-        run: pnpm install
+      - run: pnpm install
 
       - name: Build
         run: pnpm run docs:build
 
-      # 关键修复点：检查缩进和多行语法
+      # 关键修复 1：强制验证产物路径（确保生成 dist 目录）
       - name: Verify build output
         run: |
           ls -la docs/.vitepress/dist
           [ -d docs/.vitepress/dist ] || exit 1
 
+      # 关键修复 2：统一使用全小写名称
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: vite-press-build
+          name: vite-press-build  # 全小写命名
           path: docs/.vitepress/dist
-          retention-days: 1
 
+      # 关键修复 3：添加等待确保产物可用
+      - name: Wait for artifact
+        run: sleep 5  # 等待 5 秒确保产物元数据同步
+
+      # 关键修复 4：精确匹配 artifact_name
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
         with:
-          artifact_name: vite-press-build  # 注意冒号后的空格
+          artifact_name: vite-press-build  # 必须与上传名称完全一致
           token: ${{ secrets.GITHUB_TOKEN }}
