@@ -12,7 +12,7 @@ jobs:
       pages: write
       id-token: write
       contents: read
-      actions: read  # 必须保留
+      actions: read
 
     environment:
       name: github-pages
@@ -35,19 +35,21 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build
-        run: pnpm run docs:build
+      - name: Build and Prepare Artifact
+        run: |
+          pnpm run docs:build
+          mv docs/.vitepress/dist/* .  # 关键修复：移动文件到根目录
 
       - name: Verify build output
         run: |
-          ls -la docs/.vitepress/dist
-          [ -d docs/.vitepress/dist ] || exit 1
+          ls -la  # 检查根目录下是否有 index.html 等文件
+          [ -f index.html ] || exit 1
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: vite-press-build
-          path: docs/.vitepress/dist
+          path: .  # 上传根目录内容
 
       - name: Deploy to GitHub Pages
         id: deployment
@@ -55,5 +57,3 @@ jobs:
         with:
           artifact_name: vite-press-build
           token: ${{ secrets.GITHUB_TOKEN }}
-          root-directory: docs/.vitepress/dist  # 关键修复
-          
