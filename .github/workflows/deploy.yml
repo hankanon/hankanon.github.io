@@ -11,27 +11,53 @@ jobs:
     permissions:
       pages: write
       id-token: write
+      contents: read  # 显式声明代码读取权限
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
-      - uses: actions/checkout@v4  # 升级到 v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - uses: pnpm/action-setup@v2
         with:
           version: 9
-      - uses: actions/setup-node@v4  # 升级到 v4
+
+      - uses: actions/setup-node@v4
         with:
-          node-version: 20  # 建议升级到 LTS 版本（如 20.x）
-          cache: pnpm
+          node-version: "20"
+          cache: "pnpm"
+
       - run: pnpm install
+
       - name: Build
         run: pnpm run docs:build
-      - uses: actions/configure-pages@v3  # 升级到 v3（可选，兼容当前配置）
-      - uses: actions/upload-pages-artifact@v2@d17f8a2  # 升级到 v2
+
+      # 调试输出：列出构建目录的内容
+      - name: List build directory contents
+        run: ls -la docs/.vitepress/dist
+
+      # 检查构建产物路径是否存在
+      - name: Verify build output
+        run: |
+          ls -la docs/.vitepress/dist
+          [ -d docs/.vitepress/dist ] || exit 1
+
+      # 上传产物（名称需全小写避免兼容问题）
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
         with:
+          name: vite-press-build  # 名称必须全小写
           path: docs/.vitepress/dist
-      - name: Deploy
+          retention-days: 1
+
+      # 修正参数名 artifact -> artifact_name
+      - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2@b9c3cd4 # 升级到 v2
+        uses: actions/deploy-pages@v2
+        with:
+          artifact_name: vite-press-build  # 参数名更正
+          token: ${{ secrets.GITHUB_TOKEN }}
