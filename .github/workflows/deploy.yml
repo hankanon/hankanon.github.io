@@ -11,6 +11,7 @@ jobs:
     permissions:
       pages: write
       id-token: write
+      contents: read
 
     environment:
       name: github-pages
@@ -30,43 +31,28 @@ jobs:
           node-version: "20"
           cache: "pnpm"
 
-      - run: pnpm install
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Build
         run: pnpm run docs:build
 
-      # 调试输出：列出构建目录的内容
-      - name: List build directory contents
-        run: ls -la docs/.vitepress/dist
-
-      # 检查构建产物路径是否存在
+      # 关键修复点：检查缩进和多行语法
       - name: Verify build output
         run: |
           ls -la docs/.vitepress/dist
           [ -d docs/.vitepress/dist ] || exit 1
 
-      # 上传产物（名称需全小写避免兼容问题）
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: github-pages  # 名称必须全小写
+          name: vite-press-build
           path: docs/.vitepress/dist
           retention-days: 1
 
-      # 调试输出：确认工件上传成功
-      - name: Verify artifact upload
-        run: echo "Artifact github-pages has been successfully uploaded!"
-
-      # 增加调试信息：列出上传的工件
-      - name: List artifacts
-        run: curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-               -H "Accept: application/vnd.github.v3+json" \
-               https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts
-
-      # 修正参数名 artifact -> artifact_name
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
         with:
-          artifact_name: github-pages  # 参数名更正
+          artifact_name: vite-press-build  # 注意冒号后的空格
           token: ${{ secrets.GITHUB_TOKEN }}
