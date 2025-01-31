@@ -9,54 +9,52 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
-      pages: write    # 部署 Pages 所需权限
-      id-token: write # 身份验证所需权限
-      contents: read  # 代码检出权限（已由 checkout@v4 隐式包含）
+      pages: write
+      id-token: write
+      contents: read  # 显式声明代码读取权限
 
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      # 1. 检出代码
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # 检出完整提交历史
+          fetch-depth: 0
 
-      # 2. 安装 pnpm
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v2
         with:
           version: 9
 
-      # 3. 安装 Node.js
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: "20" # LTS 版本
-          cache: "pnpm"      # 启用 pnpm 缓存
+          node-version: "20"
+          cache: "pnpm"
 
-      # 4. 安装依赖
-      - name: Install dependencies
-        run: pnpm install
+      - run: pnpm install
 
-      # 5. 构建项目
       - name: Build
         run: pnpm run docs:build
 
-      # 6. 上传构建产物（替换 upload-pages-artifact）
+      # 关键修复 1：检查构建产物路径是否存在
+      - name: Verify build output
+        run: |
+          ls -la docs/.vitepress/dist
+          [ -d docs/.vitepress/dist ] || exit 1
+
+      # 关键修复 2：上传产物（名称需全小写避免兼容问题）
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: vite-press-build  # 产物名称（可自定义）
-          path: docs/.vitepress/dist  # 构建输出路径
-          retention-days: 1       # 产物保留天数（按需调整）
+          name: vite-press-build  # 名称必须全小写
+          path: docs/.vitepress/dist
+          retention-days: 1
 
-      # 7. 部署到 GitHub Pages
+      # 关键修复 3：修正参数名 artifact -> artifact_name
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
         with:
-          artifact: vite-press-build  # 必须与上传步骤的 name 一致
+          artifact_name: vite-press-build  # 参数名更正
           token: ${{ secrets.GITHUB_TOKEN }}
+          
