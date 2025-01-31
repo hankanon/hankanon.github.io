@@ -56,3 +56,4 @@ jobs:
           artifact_name: vite-press-build
           token: ${{ secrets.GITHUB_TOKEN }}
           root-directory: docs/.vitepress/dist  # 关键修复
+          
