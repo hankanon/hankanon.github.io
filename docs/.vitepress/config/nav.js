@@ -5,8 +5,8 @@ export default [
     text: '前端',
     items: [
       { text: 'JavaScript 基础知识', link: '/学习/JavaScript/types' },
-      { text: 'ES6 常用知识', link: '/学习/es6/' },
-      { text: 'TypeScript 基础知识', link: '/学习/typescript/base' },
+      // { text: 'ES6 常用知识', link: '/学习/es6/' },
+      // { text: 'TypeScript 基础知识', link: '/学习/typescript/base' },
       { text: '网络相关知识', link: '/学习/network/nginx学习笔记' },
       { text: '设计模式', link: '/学习/design/' },
     ],
