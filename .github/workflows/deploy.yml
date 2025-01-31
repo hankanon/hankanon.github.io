@@ -1,11 +1,8 @@
 name: Deploy
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["master"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
@@ -18,23 +15,23 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4  # 升级到 v4
         with:
           fetch-depth: 0
       - uses: pnpm/action-setup@v2
         with:
           version: 9
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4  # 升级到 v4
         with:
-          node-version: 18
+          node-version: 20  # 建议升级到 LTS 版本（如 20.x）
           cache: pnpm
       - run: pnpm install
       - name: Build
         run: pnpm run docs:build
-      - uses: actions/configure-pages@v2
-      - uses: actions/upload-pages-artifact@v1
+      - uses: actions/configure-pages@v3  # 升级到 v3（可选，兼容当前配置）
+      - uses: actions/upload-pages-artifact@v2  # 升级到 v2
         with:
           path: docs/.vitepress/dist
       - name: Deploy
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v2  # 升级到 v2
