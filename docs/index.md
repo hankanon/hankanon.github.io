@@ -50,5 +50,8 @@ features:
   #   details: '<small class="bottom-small">一个想躺平的小开发</small>'
   #   link: https://fe-mm.com
 ---
+
+<confetti></confetti>
+<VisitorPanel></VisitorPanel>
 <style src="./index.scss"></style>
 
