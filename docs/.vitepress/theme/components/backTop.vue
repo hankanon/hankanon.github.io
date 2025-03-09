@@ -34,14 +34,12 @@ function throttle(fn, delay = 100) {
 }
 const onScroll = throttle(
   () => {
-    console.log(Boolean(window.scrollY > 100))
     showBackTop.value = Boolean(window.scrollY > 100)
   }
 );
 
 // 监听滚动事件
 onMounted(() => {
-  console.log(1111)
   window.addEventListener("scroll", onScroll)
 });
 

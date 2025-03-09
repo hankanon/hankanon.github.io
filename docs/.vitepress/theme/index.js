@@ -1,11 +1,12 @@
-import { h } from 'vue'
-import { useData,inBrowser } from 'vitepress'
+import { h, onMounted, watch, nextTick } from 'vue'
+import { useData,inBrowser,useRoute } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import Layout from './Layout.vue' 
 import confetti from "./components/confetti.vue";
 import busuanzi from "busuanzi.pure.js";
 import VisitorPanel from "./components/VisitorPanel.vue";
 import './styles/index.scss'
+import mediumZoom from 'medium-zoom';
 export default {
   extends: DefaultTheme,
   Layout: () => {
@@ -24,6 +25,7 @@ export default {
         if (typeof _hmt !== 'undefined') {
           _hmt.push(['_trackPageview', to]);
         }
+        mediumZoom('[data-zoomable]', { background: 'var(--vp-c-bg)' });
       };
       router.onAfterRouteChanged = () => {
         busuanzi.fetch();
@@ -31,5 +33,19 @@ export default {
     }
     // console.log(app)
     // console.log(siteData)
+  },
+  setup() {
+    const route = useRoute();
+    const initZoom = () => {
+      mediumZoom('[data-zoomable]', { background: 'var(--vp-c-bg)' }); // 默认
+      // mediumZoom(".main img", { background: "var(--vp-c-bg)" }); // 不显式添加{data-zoomable}的情况下为所有图像启用此功能
+    };
+    onMounted(() => {
+      initZoom();
+    });
+    watch(
+      () => route.path,
+      () => nextTick(() => initZoom())
+    );
   }
 }

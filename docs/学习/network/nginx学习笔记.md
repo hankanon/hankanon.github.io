@@ -53,7 +53,7 @@ Nginx 是开源、高性能、高可靠的 Web 和反向代理服务器，而且
 3. XMLHttpRequestUpload 对象注册了任何事件监听器
 4. 请求中使用了ReadableStream对象
 
-![img](https://raw.githubusercontent.com/hankanon/picture/main/img/post.png)
+![img](https://raw.githubusercontent.com/hankanon/picture/main/img/post.png){data-zoomable}
 
 | **CORS**预检请求触发条件                                     | 本次请求是否触发该条件 |
 | ------------------------------------------------------------ | ---------------------- |
