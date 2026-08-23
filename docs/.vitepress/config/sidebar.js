@@ -16,14 +16,6 @@ export default {
     //   text: 'TypeScript',
     //   link: '/学习/typescript/base'
     // },
-    {
-      text: 'HTML / CSS',
-      collapsed: false,
-      items: [
-        // { text: 'HTML 理论知识点', link: '/学习/html/' },
-        { text: 'SCSS 知识点', link: '/学习/css/sass学习笔记' }
-      ]
-    },
     // {
     //   text: '浏览器与网络',
     //   collapsed: false,
@@ -46,6 +38,34 @@ export default {
     //   link: '/学习/coding/'
     // }
   ],
+  '/学习/css/': [
+    {
+      text: 'CSS',
+      collapsed: false,
+      items: [
+        { text: 'SCSS 知识点', link: '/学习/css/sass学习笔记' }
+      ]
+    }
+  ],
+  '/学习/network/': [
+    {
+      text: '网络',
+      collapsed: false,
+      items: [
+        { text: 'nginx 学习笔记', link: '/学习/network/nginx学习笔记' }
+      ]
+    }
+  ],
+  '/学习/vue/': [
+    {
+      text: 'Vue',
+      collapsed: false,
+      items: [
+        { text: 'Vue3 响应式原理', link: '/学习/vue/Vue3响应式原理' },
+        { text: 'Vue 服务端渲染笔记', link: '/学习/vue/Vue 服务端渲染笔记' }
+      ]
+    }
+  ],
   '/note/': [
     {
       text: '笔记',
@@ -54,6 +74,10 @@ export default {
     {
       text: '移动端适配',
       link: '/note/移动端适配'
+    },
+    {
+      text: 'WPS WebOffice 对接总结',
+      link: '/note/WebOffice对接总结封面'
     }],
   '/学习/design/': [
     {
@@ -109,6 +133,26 @@ export default {
       ]
     }
   ],
+  '/游戏/': [
+    {
+      text: '游戏',
+      link: '/游戏/index'
+    }
+  ],
+  '/读书/': [
+    {
+      text: '读书',
+      link: '/读书/index'
+    }
+  ],
+  '/其他/': [
+    {
+      text: '其他',
+      link: '/其他/index'
+    }
+  ]
+  /* 以下为预留板块（对应目录 / 文章尚未创建），启用时取消注释
+  ,
   '/analysis/': [
     {
       text: '工具库',
@@ -192,4 +236,5 @@ export default {
       ]
     }
   ]
+  */
 }

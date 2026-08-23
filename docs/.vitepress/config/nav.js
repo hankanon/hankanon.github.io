@@ -7,7 +7,10 @@ export default [
       { text: 'JavaScript 基础知识', link: '/学习/JavaScript/types' },
       // { text: 'ES6 常用知识', link: '/学习/es6/' },
       // { text: 'TypeScript 基础知识', link: '/学习/typescript/base' },
+      { text: 'SCSS 知识点', link: '/学习/css/sass学习笔记' },
       { text: '网络相关知识', link: '/学习/network/nginx学习笔记' },
+      { text: 'Vue3 响应式原理', link: '/学习/vue/Vue3响应式原理' },
+      { text: 'Vue 服务端渲染笔记', link: '/学习/vue/Vue 服务端渲染笔记' },
       { text: '设计模式', link: '/学习/design/' },
     ],
     activeMatch: '^/学习'
@@ -21,6 +24,12 @@ export default [
   },
   {
     text: '游戏', link: '/游戏/', activeMatch: '^/游戏'
+  },
+  {
+    text: '读书', link: '/读书/', activeMatch: '^/读书'
+  },
+  {
+    text: '其他', link: '/其他/', activeMatch: '^/其他'
   }
   // {
   //   text: '算法',
