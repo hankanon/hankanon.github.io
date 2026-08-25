@@ -1,12 +1,5 @@
----
-layout: vue3
-title: Vue3响应式原理
-date: 2021-05-09 20:03:12
-tags:
-- Vue3 原理
-categories: 
-- Vue3
----
+# Vue3响应式原理
+
 ## Vue3.0 composition-api的用法
 ```html
 <body>
@@ -78,10 +71,11 @@ categories:
 
 ## Vue2 和Vue3 运行机制对比
 Vue2 运行机制：
-![](https://gitee.com/hankanon/public/raw/master/WX20201221-015918@2x.png)
+![Vue2运行机制](./images/WX20201221-015918@2x.png)
+
 图片来自：[掘金小册：剖析 Vue.js 内部运行机制](https://juejin.cn/book/6844733705089449991)
 Vue3 运行机制：
-![](https://gitee.com/hankanon/public/raw/master/20201221001406.png)
+![Vue3运行机制](./images/20201221001406.png)
 
 ## Vue3数据响应式原理
 ### Proxy 和 Reflect
@@ -289,7 +283,7 @@ function createSetter(shallow = false) {
 
 ## 完整的响应式图
 
-![](https://gitee.com/hankanon/public/raw/master/20201220225052.png)
+![完整的响应式图](./images/20201220225052.png)
 链接：[图片来自掘金：深入学习vue3.0核心实现原理](https://juejin.cn/post/6874754047891472391)
 
 **问题：Vue2 中可以this访问到定义在data、methods中的变量或方法，是通过 defineProperty 进行数据上下文代理，让我们可以直接通过 this 进行访问，并在更改值后触发 get、set。

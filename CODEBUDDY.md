@@ -11,6 +11,7 @@
 - **构建**：`pnpm docs:build`，产物输出到 `docs/.vitepress/dist`（该目录被 git 忽略，勿提交）。
 - **预览构建产物**：`pnpm docs:preview`，本地静态预览 `docs:build` 的结果。
 - 无 `lint` / `test` 脚本；修改配置或主题后通过 `docs:dev` 自行验证即可。
+- **依赖说明**：运行时依赖各有固定消费点 —— `canvas-confetti` 供全局组件 `confetti` 使用；`medium-zoom` 由 `theme/index.js` 与 `Layout.vue` 两处初始化（改动须同步）；`busuanzi.pure.js` 做访问统计（在 `theme/index.js` 路由切换后刷新）；`@giscus/vue` 提供 `Layout.vue` 中的 Giscus 评论。新增依赖时确认落在这些消费点之一。
 
 ## 架构
 
@@ -40,6 +41,10 @@ VitePress 配置的唯一边缘入口，本身只组装三个子模块（均使�
 ### 部署
 
 无 CI 配置文件，站点依赖 GitHub Pages 服务构建；本地用 `pnpm docs:build` 产出 `docs/.vitepress/dist` 验证构建结果后推送到 `origin`（`hankanon/hankanon.github.io`）发布。`docs/.vitepress/cache/` 与 `docs/.vitepress/dist/` 均为本地产物，不属于源码。
+
+- **部署基路径**：`config.js` 中 `base: '/'` 且仓库名为 `hankanon.github.io`（即 GitHub Pages 的 user/organization 根域），因此无需子路径 base。若未来改仓到非 `*.github.io` 根域或 Project Pages，需相应调整 `base`。
+- **站内搜索**：`themeConfig.search.provider: "local"`（VitePress 内置本地搜索，由 `@localSearchIndex` 自动构建），无 Algolia / 外部搜索配置，新增内容无需登记即可被搜到。
+- **待修项提示**：`config.js` 的 `socialLinks` 中 github 链接目前指向 `vuejs/vitepress` 占位地址，非本站仓库，发布前建议改为 `hankanon/hankanon.github.io`。
 
 ### 修改指南要点
 
