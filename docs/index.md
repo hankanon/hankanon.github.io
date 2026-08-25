@@ -17,7 +17,7 @@ hero:
       link: /学习/index
       theme: alt
     - text: 其他
-      link: /other
+      link: /其他/index
       theme: alt
 features:
   - icon: 📖
